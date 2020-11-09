@@ -61,8 +61,8 @@ jobs:
 
       - name: Push image
         run: |
-          TERM_IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$TERM_IMAGE_NAME
-          GUI_IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$GUI_IMAGE_NAME
+          TERM_IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$(echo $TERM_IMAGE_NAME | sed -e 's#^utnetlab/##')
+          GUI_IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$(echo $TERM_IMAGE_NAME | sed -e 's#^utnetlab/##')
 
           # Change all uppercase to lowercase
           TERM_IMAGE_ID=$(echo $TERM_IMAGE_ID | tr '[A-Z]' '[a-z]')
