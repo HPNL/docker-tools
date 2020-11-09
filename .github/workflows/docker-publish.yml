@@ -14,7 +14,6 @@ on:
   pull_request:
 
 env:
-  # TODO: Change variable to your image's name.
   TERM_IMAGE_NAME: utnetlab/term
   TERM_IMAGE_FILE: term2.Dockerfile
   GUI_IMAGE_NAME: utnetlab/gui
@@ -50,6 +49,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      # - name: Pull last image
+      #   run: |
+      #     TERM_IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$(echo $TERM_IMAGE_NAME | sed -e 's#^utnetlab/##')
+      #     GUI_IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$(echo $GUI_IMAGE_NAME | sed -e 's#^utnetlab/##')
+
+      #     # Change all uppercase to lowercase
+      #     TERM_IMAGE_ID=$(echo $TERM_IMAGE_ID | tr '[A-Z]' '[a-z]')
+      #     GUI_IMAGE_ID=$(echo $GUI_IMAGE_ID | tr '[A-Z]' '[a-z]')
+
       - name: Build term image
         run: docker build . --file $TERM_IMAGE_FILE --tag $TERM_IMAGE_NAME
 
@@ -62,7 +70,7 @@ jobs:
       - name: Push image
         run: |
           TERM_IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$(echo $TERM_IMAGE_NAME | sed -e 's#^utnetlab/##')
-          GUI_IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$(echo $TERM_IMAGE_NAME | sed -e 's#^utnetlab/##')
+          GUI_IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$(echo $GUI_IMAGE_NAME | sed -e 's#^utnetlab/##')
 
           # Change all uppercase to lowercase
           TERM_IMAGE_ID=$(echo $TERM_IMAGE_ID | tr '[A-Z]' '[a-z]')
