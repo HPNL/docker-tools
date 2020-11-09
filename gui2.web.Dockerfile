@@ -30,6 +30,7 @@ RUN apt-get update \
         apache2 webalizer goaccess perl \
         tftpd-hpa inetutils-telnetd php php-common libapache2-mod-php openssl \
         ifupdown \
+        vlc \
     && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/archives/*.deb
     #&& dpkg-query -f '${binary:Package}\n' -W | sort > packages \
     #&& DEBIAN_FRONTEND=noninteractive apt-get -y purge \
@@ -82,5 +83,10 @@ RUN cd /home/netlab/code/ && \
     gcc UDPserver.c -o UDPserver && \
     cd sock && autoreconf -if && ./configure && make && \
     cp ./src/sock /usr/local/bin/socket && cd .. && rm -rf sock
+
+# Disable root check for vlc
+RUN sed -i 's/geteuid/getppid/' /usr/bin/vlc
+
+COPY group.mp4 /home/netlab/
 
 ENV PATH="/home/netlab/code:${PATH}"
