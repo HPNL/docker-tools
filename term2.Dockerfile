@@ -84,6 +84,7 @@ RUN cd /home/netlab/code/ && \
     gcc TCPserver.c -o TCPserver && \
     gcc UDPclient.c -o UDPclient && \
     gcc UDPserver.c -o UDPserver && \
+    gcc rdisc.c -o rdisc && \
     cd sock && autoreconf -if && ./configure && make && \
     cp ./src/sock /usr/local/bin/socket && cd .. && rm -rf sock
 
