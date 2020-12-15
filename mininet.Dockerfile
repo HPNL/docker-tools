@@ -1,5 +1,5 @@
 # docker run --name mininet --privileged -p 6080:80 -p 5900:5900 -v /dev/shm:/dev/shm -v /lib/modules:/lib/modules  -d utnetlab/mininet
-FROM dorowu/ubuntu-desktop-lxde-vnc
+FROM utnetlab/web-desktop
 
 COPY ssl /etc/nginx/ssl
 ENV SSL_PORT=443
