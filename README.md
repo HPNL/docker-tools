@@ -36,7 +36,7 @@ docker pull utnetlab/gui
 [![Docker Pulls](https://img.shields.io/docker/pulls/utnetlab/mininet.svg)](https://hub.docker.com/r/utnetlab/mininet/)
 [![Docker Stars](https://img.shields.io/docker/stars/utnetlab/mininet.svg)](https://hub.docker.com/r/utnetlab/mininet/)
 
-Based on `web-desktop` with `mininet` package.
+Based on `web-desktop` with {`mininet`, `wireshark`} and some network tools package.
 
 ```bash
 docker pull utnetlab/mininet
