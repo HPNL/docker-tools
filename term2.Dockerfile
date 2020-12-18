@@ -31,7 +31,7 @@ RUN apt-get update \
         sudo htop bash-completion screen less man-db  curl wget socat knot-host mtr-tiny nano vim \
         net-tools iperf3 traceroute tcpdump isc-dhcp-client isc-dhcp-server icmpush iputils-ping \
         xinetd  telnet ftp vsftpd  tftp rdate snmp snmpd ntp ntpdate netcat arping iproute2 openssh-client \
-        openssh-server iptables apache2 webalizer goaccess perl \
+        openssh-server iptables apache2 webalizer goaccess geoip-database perl \
         tftpd-hpa inetutils-telnetd php php-common libapache2-mod-php openssl \
     && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/archives/*.deb
     #&& dpkg-query -f '${binary:Package}\n' -W | sort > packages \
