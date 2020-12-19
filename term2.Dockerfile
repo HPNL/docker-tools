@@ -88,7 +88,10 @@ RUN cd /home/netlab/code/ && \
     cd sock && autoreconf -if && ./configure && make && \
     cp ./src/sock /usr/local/bin/socket && cd .. && rm -rf sock
 
-ENV PATH="/home/netlab/code:${PATH}"
+# Don't ignore all ICMP ECHO and TIMESTAMP requests sent to it via broadcast/multicast
+RUN echo "net.ipv4.icmp_echo_ignore_broadcasts = 0" >> /etc/sysctl.conf
+
+ENV PATH=/home/netlab/code:$PATH
 
 # start service and bash
 WORKDIR /root/

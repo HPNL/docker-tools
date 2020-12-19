@@ -61,9 +61,12 @@ RUN cd /home/netlab/code/ && \
     cd sock && autoreconf -if && ./configure && make && \
     cp ./src/sock /usr/local/bin/socket && cd .. && rm -rf sock
 
+# Don't ignore all ICMP ECHO and TIMESTAMP requests sent to it via broadcast/multicast
+RUN echo "net.ipv4.icmp_echo_ignore_broadcasts = 0" >> /etc/sysctl.conf
+
 # Disable root check for vlc
 RUN sed -i 's/geteuid/getppid/' /usr/bin/vlc
 
 COPY group.mp4 /home/netlab/
 
-ENV PATH="/home/netlab/code:${PATH}"
+ENV PATH=/home/netlab/code:$PATH
