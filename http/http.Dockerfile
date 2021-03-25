@@ -22,8 +22,8 @@ RUN set -ex \
 
 COPY hello.pl hello.php index.html try1.html try2.html logo.png /var/www/html/
 COPY server.key server.crt /etc/apache2/ssl/
-COPY http/webalizer.conf /etc/webalizer/
-COPY http/goaccess.conf /etc/
+COPY webalizer.conf /etc/webalizer/
+COPY goaccess.conf /etc/
 
 # start service and bash
 WORKDIR /root/
