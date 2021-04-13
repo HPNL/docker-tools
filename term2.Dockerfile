@@ -52,6 +52,7 @@ RUN sed -i 's/= yes/= no/g' /etc/xinetd.d/time && \
     touch /var/lib/dhcp/dhcpd.leases && \
     mkdir -p /var/run/vsftpd/empty && \
     sed -i 's/listen_ipv6=YES/listen_ipv6=NO/' /etc/vsftpd.conf && \
+    sed -i 's/#write_enable=YES/write_enable=YES/' /etc/vsftpd.conf && \
     su netlab -c 'cd; truncate -s 1K thin.dum; truncate -s 10K small.dum; truncate -s 100K med.dum; truncate -s 1M large.dum'
 
 # config apache2
