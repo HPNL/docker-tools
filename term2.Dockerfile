@@ -28,7 +28,7 @@ RUN apt-get update \
     && cd .. \
     && rm -r *s20200821* \
     && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
-        sudo htop bash-completion screen less man-db  curl wget socat knot-host mtr-tiny nano vim \
+        sudo htop bash-completion screen tmux less man-db  curl wget socat knot-host mtr-tiny nano vim \
         net-tools iperf3 traceroute tcpdump isc-dhcp-client isc-dhcp-server icmpush iputils-ping \
         xinetd  telnet ftp vsftpd  tftp rdate snmp snmpd ntp ntpdate netcat arping iproute2 openssh-client \
         openssh-server iptables apache2 webalizer goaccess geoip-database perl \
