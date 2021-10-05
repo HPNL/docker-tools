@@ -7,8 +7,17 @@ The base docker container that need to use in [TCP-IP-Laboratory](https://github
 [![Docker Pulls](https://img.shields.io/docker/pulls/utnetlab/term.svg)](https://hub.docker.com/r/utnetlab/term/)
 [![Docker Stars](https://img.shields.io/docker/stars/utnetlab/term.svg)](https://hub.docker.com/r/utnetlab/term/)
 
+DockerHub repository:
+
 ```bash
 docker pull utnetlab/term
+```
+
+Github repository:
+
+```bash
+docker pull ghcr.io/ut-network-lab/docker-tools/term:latest
+docker tag ghcr.io/ut-network-lab/docker-tools/term:latest utnetlab/term:latest
 ```
 
 ## web-desktop container
@@ -27,8 +36,17 @@ docker pull utnetlab/web-desktop
 
 Based on `web-desktop` with some network client tools.
 
+DockerHub repository:
+
 ```bash
 docker pull utnetlab/gui
+```
+
+Github repository:
+
+```bash
+docker pull ghcr.io/ut-network-lab/docker-tools/gui:latest
+docker tag ghcr.io/ut-network-lab/docker-tools/gui:latest utnetlab/gui:latest
 ```
 
 ## mininet container
