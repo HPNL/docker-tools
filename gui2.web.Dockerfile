@@ -3,7 +3,7 @@ FROM utnetlab/web-desktop
 COPY ssl /etc/nginx/ssl
 ENV SSL_PORT=443
 
-RUN apt-get update \
+RUN rm -f /etc/apt/sources.list.d/google-chrome.list && apt-get update \
     && dpkg-query -f '${binary:Package}\n' -W | sort > base_packages \
     && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
         libc6-dev make curl ca-certificates build-essential autoconf automake autotools-dev meson ninja-build \
@@ -27,7 +27,7 @@ RUN apt-get update \
         net-tools iperf3 traceroute tcpdump wireshark isc-dhcp-client icmpush iputils-ping \
         telnet ftp tftp rdate snmp ntp ntpdate netcat arping iproute2 openssh-client iptables \
         openssl ifupdown \
-        vlc \
+        vlc chromium-browser \
     && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/archives/*.deb
     #&& dpkg-query -f '${binary:Package}\n' -W | sort > packages \
     #&& DEBIAN_FRONTEND=noninteractive apt-get -y purge \
