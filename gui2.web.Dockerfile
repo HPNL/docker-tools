@@ -23,8 +23,8 @@ RUN apt-get update \
     && cd .. \
     && rm -r *s20200821* \
     && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
-        sudo htop bash-completion screen tmux less man-db  curl wget socat knot-host mtr-tiny nano vim \
-        net-tools iperf3 traceroute tcpdump isc-dhcp-client icmpush iputils-ping \
+        sudo htop bash-completion screen tmux less man-db curl wget socat knot-host mtr-tiny nano vim \
+        net-tools iperf3 traceroute tcpdump wireshark isc-dhcp-client icmpush iputils-ping \
         telnet ftp tftp rdate snmp ntp ntpdate netcat arping iproute2 openssh-client iptables \
         openssl ifupdown \
         vlc \
